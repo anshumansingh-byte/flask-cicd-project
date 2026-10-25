@@ -12,15 +12,15 @@ pipeline {
         stage('Verify Files') {
             steps {
                 echo 'Checking project files'
-                bat 'dir'
-                bat 'type requirements.txt'
+                sh 'ls -la'
+                sh 'cat requirements.txt'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 echo 'Building the Flask Docker image'
-                bat 'docker build -t flask-cicd-app .'
+                sh 'docker build -t flask-cicd-app .'
             }
         }
     }

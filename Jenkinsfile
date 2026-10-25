@@ -21,12 +21,12 @@ pipeline {
                 sh 'docker build -t flask-cicd-app:latest .'
             }
         }
-
         stage('Load Image into Minikube') {
-            steps {
-                sh 'docker exec minikube crictl images'
-            }
-        }
+    steps {
+        sh 'docker save flask-cicd-app:latest | docker exec -i minikube ctr -n k8s.io images import -'
+    }
+}
+       
 
         stage('Deploy to Kubernetes') {
             steps {

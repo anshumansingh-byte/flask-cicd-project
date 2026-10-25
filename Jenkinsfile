@@ -37,7 +37,7 @@ pipeline {
                     sh '''
                         export AWS_DEFAULT_REGION="$AWS_REGION"
                         aws ecr get-login-password --region "$AWS_REGION" |
-                        docker login --username AWS --password-stdin "$ECR_REPOSITORY"
+                        docker login --username AWS --password-stdin 554663574752.dkr.ecr.ap-south-1.amazonaws.com
                     '''
                 }
             }
